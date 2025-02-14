@@ -51,65 +51,65 @@ export default function Form() {
     };
   
 
-return (
-<div className={styles.container}>
-    <form onSubmit={handleSubmit} className={styles.form}>
-    <h1>Registration Form</h1>
-    
-    <div className={styles.formGroup}>
-        <label htmlFor="name">Name:</label>
-        <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(e) => {
-            setName(e.target.value);
-            // Clear name error when typing
-            if (errors.name && e.target.value.trim()) {
-            setErrors(prev => ({ ...prev, name: '' }));
-            }
-        }}
-        className={errors.name ? styles.errorInput : ''}
-        />
-        {errors.name && <span className={styles.error}>{errors.name}</span>}
-    </div>
-    <div className={styles.formGroup}>
-        <label htmlFor="email">Email:</label>
-        <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => {
-            setEmail(e.target.value);
-            // Clear email error when typing valid email
-            if (errors.email) {
-            if (e.target.value.trim() && validateEmail(e.target.value)) {
-                setErrors(prev => ({ ...prev, email: '' }));
-            }
-            }
-        }}
-        className={errors.email ? styles.errorInput : ''}
-        />
-        {errors.email && <span className={styles.error}>{errors.email}</span>}
-    </div>
-    <div className={styles.formGroup}>
-        <label htmlFor="password">Password:</label>
-        <input
-        type="password"
-        id="password"
-        ref={passwordRef}
-        onChange={(e) => {
-            // Clear password error when meeting length requirement
-            if (errors.password && e.target.value.length >= 6) {
-            setErrors(prev => ({ ...prev, password: '' }));
-            }
-        }}
-        className={errors.password ? styles.errorInput : ''}
-        />
-        {errors.password && <span className={styles.error}>{errors.password}</span>}
-    </div>
-    <button type="submit" className={styles.submitButton}>Submit</button>
-    </form>
-</div>
-);
+    return (
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <h1>Registration Form</h1>
+                
+                <div className={styles.formGroup}>
+                    <label htmlFor="name">Name:</label>
+                    <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => {
+                        setName(e.target.value);
+                        // Clear name error when typing
+                        if (errors.name && e.target.value.trim()) {
+                        setErrors(prev => ({ ...prev, name: '' }));
+                        }
+                    }}
+                    className={errors.name ? styles.errorInput : ''}
+                    />
+                    {errors.name && <span className={styles.error}>{errors.name}</span>}
+                </div>
+                <div className={styles.formGroup}>
+                    <label htmlFor="email">Email:</label>
+                    <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                        // Clear email error when typing valid email
+                        if (errors.email) {
+                        if (e.target.value.trim() && validateEmail(e.target.value)) {
+                            setErrors(prev => ({ ...prev, email: '' }));
+                        }
+                        }
+                    }}
+                    className={errors.email ? styles.errorInput : ''}
+                    />
+                    {errors.email && <span className={styles.error}>{errors.email}</span>}
+                </div>
+                <div className={styles.formGroup}>
+                    <label htmlFor="password">Password:</label>
+                    <input
+                    type="password"
+                    id="password"
+                    ref={passwordRef}
+                    onChange={(e) => {
+                        // Clear password error when meeting length requirement
+                        if (errors.password && e.target.value.length >= 6) {
+                        setErrors(prev => ({ ...prev, password: '' }));
+                        }
+                    }}
+                    className={errors.password ? styles.errorInput : ''}
+                    />
+                    {errors.password && <span className={styles.error}>{errors.password}</span>}
+                </div>
+                <button type="submit" className={styles.submitButton}>Submit</button>
+            </form>
+        </div>
+    );
 }
